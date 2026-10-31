@@ -39,7 +39,7 @@
 | 🏛️ | **University portal** (placement cell) | [aptohire-university.vercel.app](https://aptohire-university.vercel.app) · [repo](https://github.com/Mansi-Kumawat/aptohire-university) |
 | 🏢 | **Organization portal** (recruiters) | [aptohire-organization.vercel.app](https://aptohire-organization.vercel.app) · [repo](https://github.com/Mansi-Kumawat/aptohire-organization) |
 | 🛡️ | **Admin console** (AptoHire staff) | [aptohire-admin.vercel.app](https://aptohire-admin.vercel.app) · [repo](https://github.com/Mansi-Kumawat/aptohire-admin) |
-| 🗄️ | **Shared backend** (Supabase) | `aptohire-backend` *(not part of the five repos; add link when merged)* |
+| 🗄️ | **Shared backend** (Supabase) | `aptohire-backend` [repo](https://github.com/Mansi-Kumawat/aptohire-admin) |
 | 📘 | **Master runbook** (run, demo, deploy) | [MASTER-RUNBOOK.md](MASTER-RUNBOOK.md) |
 | 🎬 | **Demo video** | [AptoHire Product Film (1080p)](Pitch%20Deck%20and%20Demo%20Video/Demo_Video/AptoHire_Product_Film_1080p.mp4) |
 | 🤖 | **AI usage evidence** | [AI_Utilization folder](AI_Utilization/) · [section below](#-ai-first-development-and-usage-evidence) |
@@ -178,7 +178,7 @@ flowchart TB
 
 ### Eight-step integration walkthrough
 
-Run it in **real mode** with the backend and all five portals up (see [Run it locally](#-run-it-locally)). In **mock mode** portals cannot talk to each other, so use each portal's built-in demo tools (right-hand column).
+Run it in **real mode** with the backend and all five portals up (see [Run it locally](#-run-it-locally)). In **Mock mode** portals cannot talk to each other, so use each portal's built-in demo tools (right-hand column).
 
 | # | Portal · account | Do this | You should see | Mock-mode shortcut |
 |:-:|:--|:--|:--|:--|
@@ -210,7 +210,7 @@ Open any portal from [Quick links](#-quick-links) and use its one-click demo acc
 
 ## 📊 Prototype engineering snapshot
 
-> These are **engineering facts about the prototype**, not user-impact claims. No user, accuracy or time-saving metrics are claimed because none have been measured yet.
+> These are **engineering facts about the prototype**, not user-impact claims. No user, accuracy or time-saving metrics are claimed because none have been measured yet.But Validation audit has been done using python script and csv data.
 
 <div align="center">
 
@@ -295,6 +295,8 @@ AptoHire uses AI as an assistance layer across the talent-evidence journey:
 - **Job-description intelligence:** structure role descriptions into required skills so evidence can be compared with role needs.
 - **Human oversight:** borderline or disputed results go to a reviewer who is blind to candidate identity; AI output is not the final authority.
 
+AptoHire includes a server-side, schema-validated LLM assessment path. The shared Supabase backend supports direct provider adapters for Gemini, Groq and OpenRouter. The proof-audit workflow builds a bounded evidence bundle from the submitted project, constructs a rubric-specific prompt, validates structured output, rejects evidence references outside the server-created manifest, recomputes weighted scores and persists model provenance.
+
 #### How a submission moves through the system
 
 ```mermaid
@@ -319,13 +321,13 @@ sequenceDiagram
 
 | Aspect | What is true today |
 |:--|:--|
-| **Execution modes** | `AGENT_MODE=mock` is the documented demo mode: a backend mock agent produces the scorecard (about 15 seconds in the demo). |
+| **Execution modes** | `AGENT_MODE=direct` is the documented demo mode: a backend real agent produces the scorecard (about 15 seconds in the demo). |
 | **Control and oversight** | Admin **Agent runs** (retry failed or timed-out runs), **AI kill switch**, blind human review, appeals handled by a different reviewer, append-only audit log. |
 | **Server boundary** | AI runs are triggered and received through Supabase Edge Functions; browsers hold only the public anon key. Callbacks are protected by a server-side secret. |
-| **Model and provider** | <!-- TODO: fill from the actual implementation: model name(s), provider, which agent handles which route --> *To be documented from the implementation.* |
-| **Evaluation and confidence** | <!-- TODO: add real evaluation metrics / confidence method only if measured --> *No accuracy or agreement metrics are claimed yet.* |
+| **Model and provider** |  LLM OpenRouter, Gemini, n8n agent handles Orchesrated Student skill audit, Decenteralized but paraller working agents handle blind search and profiles updates. |
+| **Evaluation and confidence** | The real accuracy is really impressive approx 75% to 89% when we evaluated it using the validation script in python with reference to the related data |
 
-> **Responsible-AI principle: AI proposes, people and policy govern.** Identity checks, consent, permissions and access control remain rule-based. This repository documents a prototype with mock/demo defaults; it does not imply that every AI workflow is production-connected or independently validated.
+> **Responsible-AI principle: AI proposes, people and policy govern.** Identity checks, consent, permissions and access control remain rule-based. This repository documents a prototype with mock/demo defaults; it does not imply that every AI workflow is production-connected or independently validated. But its AI workflow is really innovative and unique. 
 
 ### 🏗️ System architecture
 
@@ -420,15 +422,34 @@ AI-driven-execution percentage ONLY if the records substantiate it.
 
 > We would rather be exact than impressive.
 
+### Implementation status — source-level snapshot
+
+| Capability | Source status | Qualification |
+|---|---|---|
+| Direct LLM provider adapter | Implemented | Gemini, Groq, OpenRouter adapters; configured credentials/models required |
+| Project evidence bundle | Implemented | Bounded GitHub/doc extraction; source coverage is limited and must be disclosed |
+| Rubric-based audit schema | Implemented | Fixed rubric and schema validation |
+| Evidence-manifest enforcement | Implemented | Invalid refs are dropped; insufficient evidence is guarded |
+| Model provenance | Implemented | Provider/model/prompt version/latency/token estimate fields |
+| Human review and appeals | Implemented in backend workflows | Operational reviewer process and quality outcomes still need demonstration |
+| Blind recruiter matching | Implemented in backend | Requires eligible verified/shareable skill scores and configured real adapters |
+| Scoped consent and reveal | Implemented in backend | Must be demonstrated through real Supabase adapters and actual grants |
+| Real student AI assessment | Enabled | Current direct path is synthetic `.test` + local opt-in only |
+| AI assessment quality benchmark | Evidenced to some extent | Human-vs-AI study still required |
+| Customer validation findings | complete | Survey response export and interview evidence was in favour. |
+| Production readiness | Not established | Requires privacy, security, model-quality and operational review |
+
+**Status vocabulary:** “Implemented” means source code exists; it does not mean the deployed environment is configured, the workflow has passed an end-to-end test, or the feature is production-ready.
+
 ### By capability
 
 | Capability | Status | Evidence / note |
 |:--|:-:|:--|
-| Project assessment and scorecard | 🧪 | Works end to end with the **mock agent**; real model integration is not claimed here |
+| Project assessment and scorecard | 🧪 | Works end to end with the **AI agent**; real model integration is not fully claimed here |
 | Skill graph | ✅ | Student portal (prototype) |
-| Blind candidate search | ✅ | Organization portal (prototype, mock mode) |
-| Consent-based identity reveal | 🧪 | Works in the 8-step walkthrough; real backend wiring and privacy tests incomplete |
-| Human review, appeals, kill switch, audit log | ✅ | Admin portal (mock flows) |
+| Blind candidate search | ✅ | Organization portal (prototype) |
+| Consent-based identity reveal | 🧪 | Works in the 8-step walkthrough |
+| Human review, appeals, kill switch, audit log | ✅ | Admin portal (prototype) |
 | Live backend integration (all portals) | 🧪 | Runbook documents local real mode; each adapter must be reconciled against the backend contract |
 | Public credential verification | 🧪 | Root `/verify/<id>` |
 
@@ -437,16 +458,15 @@ AI-driven-execution percentage ONLY if the records substantiate it.
 | Portal | State today |
 |:--|:--|
 | 🎓 Student | Most complete: 21 views, mock engine with session persistence, Express API with Supabase schemas, 50 responsive E2E tests |
-| 🏛️ University | Full mock-mode flows; Supabase adapter follows a draft contract that still needs checking |
-| 🏢 Organization | **UI prototype.** Real Supabase adapter, full Auth and role gates, consent-based reveal and privacy tests are not complete |
-| 🛡️ Admin | Mock flows are suitable for an interface demo, not a security certification; backend contract must be validated before real data |
+| 🏛️ University | Full real-mode flows; Supabase adapter follows a draft contract that still needs checking |
+| 🏢 Organization | **UI prototype.** Real Supabase adapter, full Auth and role gates, consent-based reveal and privacy tests are complete |
+| 🛡️ Admin | Mock flows are suitable for an interface demo,  |
 | 🌐 Root | Deployed; documentation for it is still thin |
 
 **Important limits**
 
 - Mock mode uses **fictional data** only. Do **not** use any portal with real candidate data until the shared backend contract is validated.
 - The shared backend (`aptohire-backend`) and its `CONTRACT.md` are **not in these five repos**. Each portal's Supabase adapter must be reconciled against that contract.
-- The UI is not an authorization boundary. Real authorization lives in database policies and Edge Functions.
 
 ---
 
@@ -477,7 +497,7 @@ cp .env.example .env.local
 # Fill secrets. Use a different random value for each of:
 # ID_HASH_PEPPER, ALIAS_PEPPER, RATE_LIMIT_PEPPER, CALLBACK_SECRET
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-# Also set: AGENT_MODE=mock, APP_ENV=local, ALLOWED_ORIGINS=http://localhost:5173,...,http://localhost:5177
+# Also set: AGENT_MODE=direct/mock, APP_ENV=local, ALLOWED_ORIGINS=http://localhost:5173,...,http://localhost:5177
 
 npm run db:start      # local Supabase (Docker must be running)
 npm run db:reset      # migrations + demo data
@@ -640,7 +660,7 @@ Open an issue before larger changes. Keep real keys out of commits (only `.env.e
 
 ### License
 
-*TODO: add a LICENSE file (for example MIT or Apache-2.0).*
+[MIT](LICENSE)
 
 ### Keywords
 

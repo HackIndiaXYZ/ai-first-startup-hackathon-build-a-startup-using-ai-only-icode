@@ -213,7 +213,7 @@ The source README describes Node.js 20.19+ and mock mode as the default for the 
 | Backend readiness | Shared backend contract project is separately specified; README says contract must be reconciled | Audit actual migrations/functions/adapters before calling it production-ready |
 | Matching | Structured + vector matching; candidate cards anonymized | Confirm feature parity, quality evaluation and privacy tests |
 | Scoring | Scores above 50 are described as verified in PRD; pass/borderline values come from `app_config` per backend prompt | Define and test exact boundaries from config; avoid hard-coded threshold drift |
-| AI providers | Source mentions Gemini Flash-class, Groq and OpenRouter options; adapter mode is mock/direct/n8n | Confirm current configured providers and secret management |
+| AI providers | Source mentions Gemini Flash-class, Groq and OpenRouter options; adapter mode is /direct/n8n | Confirm current configured providers and secret management |
 | LinkedIn sync | Export upload, not a guaranteed live LinkedIn API integration | Keep explicit consent and user review of profile proposals |
 | Production readiness | Prototype/demo only | Security review, privacy/legal review, backups, monitoring, incident response and operational SLOs |
 
@@ -226,3 +226,18 @@ The source README describes Node.js 20.19+ and mock mode as the default for the 
 - backend and backend-delta prompts
 
 These sources define intended behavior. This document does not claim the running product has been tested or that all requirements are implemented.
+
+
+## 8. End-to-end product contract
+
+The complete user journey is: student submission → server-built evidence bundle → AI-assisted rubric assessment → schema/evidence validation and server-side score recomputation → scorecard → blind recruiter discovery → scoped access request → student consent → limited reveal → expiry or withdrawal. University views are separately scoped and should prefer aggregate readiness signals.
+
+The backend—not the model—owns authorization, consent, identity reveal, access expiry and audit state. A model response cannot grant access or change a user's role. Unreadable, missing or conflicting evidence must result in an insufficient-evidence or review state rather than a fabricated score.
+
+## 9. Assessment quality and evaluation
+
+The system should be evaluated in shadow mode against independent human reviewers using the same rubric. Report agreement within a rubric level, score error, evidence-reference support, repeat-run variation, error severity and appeal outcomes. Reviewers should be blind to AI scores and student identity. Do not claim accuracy, fairness or bias reduction until measured on a disclosed sample with stated limitations.
+
+## 10. Submission and deployment boundary
+
+The architecture and source describe available implementation paths; deployed behavior depends on environment variables, application configuration, Supabase policies, provider credentials and workflow availability. The supplied backend snapshot includes a synthetic-account guard for direct assessment. Preserve that guard until the production data-processing, consent, security and governance review is complete. A source diagram is not proof of a successful hosted end-to-end run.

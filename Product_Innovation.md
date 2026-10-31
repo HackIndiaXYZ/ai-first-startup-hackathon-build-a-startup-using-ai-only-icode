@@ -126,3 +126,27 @@ We are not asking judges or investors to believe that a platform alone can solve
 - urlHackerRank — technical skills assessmenthttps://www.hackerrank.com/
 - urlLinkedIn — professional network and hiring solutionshttps://www.linkedin.com/
 - Competitive landscape overview: urlCutshort — Hiring tools landscape in India (2026)https://cutshort.io/hiring-tools-landscape-india
+
+
+## 7. The complete proof-to-opportunity loop
+
+AptoHire's core product is one connected journey, not a set of independent AI features:
+
+1. A student submits a project and supporting evidence.
+2. The AI-assisted review evaluates defined criteria and ties explanations to evidence.
+3. Missing, contradictory or borderline evidence is marked uncertain or routed for human review.
+4. The student receives a scorecard and actionable skill gaps.
+5. A recruiter searches role-relevant, anonymized candidate cards with match explanations.
+6. The recruiter requests a defined scope of access.
+7. The student accepts or declines; only approved fields are revealed for the allowed period.
+8. Access can expire or be withdrawn. Universities receive only the views permitted by their role and data scope.
+
+The product must also handle failure states: unreadable evidence, model/provider timeout, low confidence, declined access, expired access and unauthorized requests. A failed AI run must not silently become a positive score.
+
+## 8. How AptoHire will prove the assessment is useful
+
+Before AI scores influence consequential screening, compare them in shadow mode with independent human reviewers using the same rubric. Reviewers should be blind to AI scores and student identity. Measure agreement, evidence-reference support, repeat-run stability, error severity, appeal outcomes and accessibility. Publish sample size and limitations. Any target is a target—not an achieved accuracy claim—until the evaluation has been run.
+
+## 9. Customer validation status
+
+The team confirms that an online survey was conducted, but the response export and analyzed results were not available in the supplied materials. No survey percentages, sample size or customer-demand conclusion are claimed here. The next step is to interview students, recruiters and university placement teams, then run a bounded pilot with pre-agreed measures. See [Customer validation and pilot plan](Submission_Upgrade/PILOT_AND_CUSTOMER_VALIDATION.md).

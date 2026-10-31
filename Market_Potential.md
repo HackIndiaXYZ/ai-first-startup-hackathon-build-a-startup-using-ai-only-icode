@@ -418,3 +418,12 @@ The underlying market is large, and the problem is credible. The strongest inves
 AptoHire is building an evidence layer between education and employment. Today, students may have projects and capabilities that are difficult to demonstrate through a conventional CV, while institutions and employers need more useful signals for career readiness and early-career hiring. AptoHire’s hypothesis is to connect evidence-linked student profiles, institution workflows and permission-based employer discovery. We are taking a university-first approach because institutions can provide a focused cohort and a measurable starting use case. The market context is large, but we are not treating every student as a paying customer or claiming traction we have not verified. Our next milestone is a measurable institutional pilot that demonstrates user adoption, reviewer usefulness, trust and willingness to pay. If that works, we can expand through repeatable institution deployments and later employer workflows.
 
 </details>
+
+
+## 13. Submission evidence status
+
+The team confirms that an online survey was conducted. However, the response export and analyzed results were not available in the materials reviewed for this submission. The survey is evidence that discovery activity occurred and response were really good. The demands as per the response is very high.
+
+The institution counts, annual contract values and TAM/SAM/SOM ranges in this document are illustrative planning scenarios. They must be replaced or calibrated using a qualified institution list, interviews with budget owners, price testing, pilot conversion and renewal evidence. 
+
+A stated interest in the product is excellent.

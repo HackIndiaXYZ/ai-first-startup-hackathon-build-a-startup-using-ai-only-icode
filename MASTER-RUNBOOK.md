@@ -120,7 +120,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 Use a different value for `ID_HASH_PEPPER`, `ALIAS_PEPPER`, `RATE_LIMIT_PEPPER`, `CALLBACK_SECRET`. Set:
 
 ```
-AGENT_MODE=mock
+AGENT_MODE=mock/direct/n8n
 APP_ENV=local
 ALLOWED_ORIGINS=http://localhost:5173,http://localhost:5174,http://localhost:5175,http://localhost:5176,http://localhost:5177
 ```

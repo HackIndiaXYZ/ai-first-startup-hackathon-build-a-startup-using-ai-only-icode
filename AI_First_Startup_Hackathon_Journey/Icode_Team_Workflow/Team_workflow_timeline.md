@@ -98,7 +98,7 @@ flowchart LR
     B --> C["Claude<br/>Prompt refinement"]
     C --> D["Arena AI<br/>Coding assistance"]
     D --> E["Mansi<br/>Full-stack implementation"]
-    E --> F["Lakshmi + team<br/>Testing and feedback"]
+    E --> F["Laxminarayan + team<br/>Testing and feedback"]
     F --> G["Fixes and iteration"]
     G --> H["Prototype ready · 28 Oct"]
 ```
