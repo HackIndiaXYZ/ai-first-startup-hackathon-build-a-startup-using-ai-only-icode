@@ -41,7 +41,7 @@
 | 🛡️ | **Admin console** (AptoHire staff) | [aptohire-admin.vercel.app](https://aptohire-admin.vercel.app) · [repo](https://github.com/Mansi-Kumawat/aptohire-admin) |
 | 🗄️ | **Shared backend** (Supabase) | `aptohire-backend` [repo](https://github.com/Mansi-Kumawat/aptohire-admin) |
 | 📘 | **Master runbook** (run, demo, deploy) | [MASTER-RUNBOOK.md](MASTER-RUNBOOK.md) |
-| 🎬 | **Demo video** | [AptoHire Product Film (1080p)](Pitch%20Deck%20and%20Demo%20Video/Demo_Video/AptoHire_Product_Film_1080p.mp4) |
+| 🎬 | **Demo video** | [AptoHire Product Film (1080p)](Pitch%20Deck%20and%20Demo%20Video/Demo_Video/AptoHire_Product_Film_1080p.mp4) . [Youtube](https://youtu.be/xQfRwbxzPZ8?si=H5vV9Th10PESlJLz)|
 | 🤖 | **AI usage evidence** | [AI_Utilization folder](AI_Utilization/) · [section below](#-ai-first-development-and-usage-evidence) |
 
 </div>
@@ -56,9 +56,10 @@ Everything a judge or reviewer needs, one click away. The live product links are
 
 | | Submission | Direct link |
 |:-:|:--|:--|
-| 💡 | **Idea document** | [Reviewed AptoHire Idea Document](AI_First_Startup_Hackathon_Journey/Solution_making%28Protected%29/AptoHire_Idea_Document_Reviewed.docx) |
-| 📊 | **Pitch deck** | [AptoHire Pitch Deck](Pitch%20Deck%20and%20Demo%20Video/Pitch_Deck/AptoHire_Pitch_Deck.pptx) |
-| 🎬 | **Demo video** | [AptoHire Product Film](Pitch%20Deck%20and%20Demo%20Video/Demo_Video/AptoHire_Product_Film_1080p.mp4) |
+| 💡 | **Idea document** | [Reviewed AptoHire Idea Document](AI_First_Startup_Hackathon_Journey/Solution_making%28Protected%29) |
+| 📘 | **Product MVP** | [Aptohire MVP](Aptohire_MVP.md) |
+| 📊 | **Pitch deck** | [AptoHire Pitch Deck](Pitch%20Deck%20and%20Demo%20Video/Pitch_Deck) |
+| 🎬 | **Demo video** | [AptoHire Product Film](Pitch%20Deck%20and%20Demo%20Video/Demo_Video/AptoHire_Product_Film_1080p.mp4) . [Youtube](https://youtu.be/xQfRwbxzPZ8?si=H5vV9Th10PESlJLz)|
 | 🎯 | **Problem statement** | [Problem Statement](Problem_statement.md) |
 | 🚀 | **Product innovation** | [Product Innovation](Product_Innovation.md) |
 | 📈 | **Market analysis** | [Market Potential](Market_Potential.md) |
